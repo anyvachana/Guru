@@ -123,7 +123,7 @@ INSERT INTO `operations_table`
 
 Вот и все . Никакой магии.
 
-```
+```sql
 select id as transaction_id, 
 coalesce(category,'no_catagory') as category_name, item_id, date_time, profit, top
 from 

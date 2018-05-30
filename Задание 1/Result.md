@@ -20,7 +20,7 @@
 
 **Задача:**
 
-получить топ-10 по прибыльности операций за текущий день в разрезе категорий.
+Получить топ-10 по прибыльности операций за текущий день в разрезе категорий.
 
 * * *
 
@@ -36,31 +36,14 @@
 Теперь нам нужна база данных, чтобы проверять на ней наши запросы. 
 Я использую **MariaDB**. Insert code:
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS `categories_table` (
   `id` int(11) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
 
-INSERT INTO `categories_table` (`id`, `name`) VALUES
-	(1, ' Category 1'),
-	(2, ' Category 2'),
-	(3, ' Category 3'),
- 	(4, ' Category 4');
-
-CREATE TABLE IF NOT EXISTS `items_table` (
-  `id` int(11) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL,
-  `name` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
-
-INSERT INTO `items_table` (`id`, `category_id`, `name`) VALUES
-	(1, 1, 'Item 100001'),
-	(2, 1, 'Item 100002'),
-	(3, 2, 'Item 100003'),
-  	(4, 5, 'Item 100004'),
-  	(5, 3, 'Item 100005');
-
+```sql
 CREATE TABLE IF NOT EXISTS `operations_table` (
   `id` int(11) DEFAULT NULL,
   `date_time` datetime DEFAULT NULL,
@@ -69,7 +52,34 @@ CREATE TABLE IF NOT EXISTS `operations_table` (
   `revenue` float DEFAULT NULL,
   `profit` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
 
+```sql
+CREATE TABLE IF NOT EXISTS `items_table` (
+  `id` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+```
+
+```sql
+INSERT INTO `categories_table` (`id`, `name`) VALUES
+	(1, ' Category 1'),
+	(2, ' Category 2'),
+	(3, ' Category 3'),
+ 	(4, ' Category 4');
+```
+
+```sql
+INSERT INTO `items_table` (`id`, `category_id`, `name`) VALUES
+	(1, 1, 'Item 100001'),
+	(2, 1, 'Item 100002'),
+	(3, 2, 'Item 100003'),
+  	(4, 5, 'Item 100004'),
+  	(5, 3, 'Item 100005');
+```
+
+```sql
 INSERT INTO `operations_table` 
 (`id`, `date_time`, `item_id`, `cost`, `revenue`, `profit`) VALUES
 	(1,'2018-04-18 0:00:01',1,3.5,10,6.5),

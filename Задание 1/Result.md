@@ -25,6 +25,7 @@
 * * *
 
 **Решение:**
+
 Сначала нужно закрепить названия за таблицами, так как в первичных данных этого нет.
 
 Допустим, что:
@@ -107,8 +108,9 @@ INSERT INTO `operations_table`
     
 ![Пример выгрузки](https://lh6.googleusercontent.com/bvlJdIA8RxZnflolLlY3ZG2lrBthn8VZVxCwG9jI9Fz4tTT6Pv4LmNZUrkRKj5nXJ1qjyqAzc3G16JghSCmi6GCjeHcZTQiqXMszDC17i6R2fKmdXsiUXHEF7BXA2ck_hseqSr2C)
 
-
 Подготовка на этом закончена, пора и код писать.
+
+* * *
 
 Основа кода здесь это соединение 3х таблиц. Я выбрала inner join для справочников, 
 поскольку нам нужны только те категории, в которых прописаны сущности и наоборот. 
